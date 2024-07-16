@@ -6,10 +6,52 @@ public class SwordModel : MonoBehaviour
 {
     [SerializeField] Vector3 offsetOfSlashAnim;
 
-    DamageDealing damageDealing;
+    [SerializeField] float knockbackDuration;
+    public float GetKockbackDuration()
+    {
+        return knockbackDuration;
+    }
+
+    [SerializeField] bool shouldDamageSlimes;
+    public bool GetShouldDamageSlimes() { return shouldDamageSlimes; }
+    public void SetShouldDamageSlimes(bool shouldDamageSlimes)
+    {
+        this.shouldDamageSlimes = shouldDamageSlimes;
+    }
+
+    [SerializeField] float damage;
+    public float GetDamage() { return damage; }
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
+
+    [SerializeField] float knockBackForce;
+    public float GetKnockBackForce()
+    {
+
+        return knockBackForce;
+    }
+    public void SetKnockBackForce(float knockBackForce)
+    {
+        this.knockBackForce = knockBackForce;
+    }
+
+
+    [SerializeField] bool dealingDamageAvaliable = false;
+    public bool GetDealingDamageAvaliable()
+    {
+        return dealingDamageAvaliable;
+    }
+    public void SetDealingDamageAvaliable(bool dealingDamageAvaliable)
+    {
+        this.dealingDamageAvaliable = dealingDamageAvaliable;
+    }
+
+
     private void Awake()
     {
-        damageDealing = GetComponent<DamageDealing>();
+        
     }
 
     void Start()
@@ -17,8 +59,7 @@ public class SwordModel : MonoBehaviour
 
     }
 
-    public bool GetDealingDamageAvaliable()=> damageDealing.GetDealingDamageAvaliable();
-    public void SetDealingDamageAvaliable(bool value) {damageDealing.SetDealingDamageAvaliable(value);}
+    
 
     public Vector3 GetOffsetOfSlashAnim(){
         return offsetOfSlashAnim;

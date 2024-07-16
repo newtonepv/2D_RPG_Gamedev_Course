@@ -9,12 +9,41 @@ public class SlimeModel : MonoBehaviour
 
     [SerializeField] float health;
 
+
     Action ArrivedToPlace;
 
     Vector2 destination;
 
     Rigidbody2D rb;
 
+    bool beingKnockedBack;
+
+    
+
+    public void SetBeingKnockedBack(bool beingKnockedBack)
+    {
+        this.beingKnockedBack = beingKnockedBack;
+    }
+    public bool GetBeingKnockedBack()
+    {
+        return beingKnockedBack;
+    }
+    public void SetRbAngularVelocity(float angularVelocity)
+    {
+        rb.angularVelocity = angularVelocity;
+    }
+    public void SetRbVelocity(Vector2 velocity)
+    {
+        rb.velocity = velocity;
+    }
+    public float GetRbAngularVelocity()
+    {
+        return rb.angularVelocity;
+    }
+    public Vector2 GetRbVelocity()
+    {
+        return rb.velocity;
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -65,4 +94,10 @@ public class SlimeModel : MonoBehaviour
         return health;
     }
 
+    public void AddImpulseForceToRb(Vector2 force)
+    {
+        rb.AddForce(force,ForceMode2D.Impulse);
+    }
+
+    public float GetMass() => rb.mass;
 }

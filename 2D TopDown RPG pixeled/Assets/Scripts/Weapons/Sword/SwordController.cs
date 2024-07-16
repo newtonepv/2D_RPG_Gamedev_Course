@@ -16,10 +16,21 @@ public class SwordController : MonoBehaviour
 
     PlayerInputActions playerInputActions;
     GameObject slashAnimationInstance;
+    DamageDealing damageDealing;
     private void Awake()
     {
         view = GetComponent<SwordView>();
         model = GetComponent<SwordModel>();
+
+        if (TryGetComponent<DamageDealing>(out damageDealing))
+        {
+            damageDealing.SetDamage(model.GetDamage());
+            damageDealing.SetKnockBackForce(model.GetKnockBackForce());
+            damageDealing.SetDealingDamageAvaliable(model.GetDealingDamageAvaliable());
+            damageDealing.SetShouldDamageSlimes(model.GetShouldDamageSlimes());
+            damageDealing.SetKockbackDuration(model.GetKockbackDuration());
+        }
+
 
         playerModel = GetComponentInParent<PlayerModel>();
 
@@ -60,10 +71,12 @@ public class SwordController : MonoBehaviour
     void SetDamageDealingAvaliable()
     {
         model.SetDealingDamageAvaliable(true);
+        damageDealing.SetDealingDamageAvaliable(true);
     }
     void SetDamageDealingNotAvaliable()
     {
         model.SetDealingDamageAvaliable(false);
+        damageDealing.SetDealingDamageAvaliable(false);
     }
 
     void FlipSlashAnimationUp()

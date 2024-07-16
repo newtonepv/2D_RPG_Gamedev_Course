@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SlimeController : MonoBehaviour
 {
+
     SlimeModel model;
     SlimeView view;
 
@@ -12,9 +13,12 @@ public class SlimeController : MonoBehaviour
     EnemyPathFinding enemyPathFinding;
 
     Vector2 destination;
+    Coroutine gettingKnockedBack;
+    Coroutine gettingFlashed;
 
     List<Vector2> path;
 
+    bool readyToTakeDamage = true;
 
     private void Awake()
     {
@@ -28,6 +32,8 @@ public class SlimeController : MonoBehaviour
         model = GetComponent<SlimeModel>();
 
         view = GetComponent<SlimeView>();
+
+        model.SetBeingKnockedBack(false);
     }
     void Start()
     {
@@ -38,8 +44,6 @@ public class SlimeController : MonoBehaviour
         this.path = path;
 
         SetDestination(path[0]);
-
-        
     }
 
     void SetDestination(Vector2 destination)
@@ -49,7 +53,10 @@ public class SlimeController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        MoveToDestination();
+        if(model.GetBeingKnockedBack() == false)
+        {
+            MoveToDestination();
+        }
     }
 
     private void MoveToDestination()
@@ -76,21 +83,76 @@ public class SlimeController : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    void TakeDamage(float damage)
     {
         float health = model.GetHealth();
+
         if (health > damage)
         {
-            Debug.Log("tookDamage");
-            model.SetHealth(health-damage);
+            model.SetHealth(health - damage);
         }
         else
         {
             Die();
         }
-        void Die()
+    }
+    void Die()
+    {
+         Destroy(this.gameObject);
+    }
+    
+
+    public void StartKnockBack(float knockBackDuration, float knockBackForce, Vector3 impactPos, float damage)
+    {
+        if (gettingFlashed != null)
         {
-            Debug.Log("died");
+            StopCoroutine(gettingFlashed);
+            gettingFlashed = StartCoroutine(GetFlashed(knockBackForce));
         }
+        else
+        {
+            gettingFlashed = StartCoroutine(GetFlashed(knockBackForce));
+        }
+        
+        if (gettingKnockedBack != null)
+        {
+            StopCoroutine(gettingKnockedBack);
+            gettingKnockedBack = StartCoroutine(GetKnockBack(knockBackDuration, knockBackForce, impactPos, damage));
+        }
+        else
+        {
+            gettingKnockedBack = StartCoroutine(GetKnockBack(knockBackDuration, knockBackForce, impactPos, damage));
+        }
+
+    }
+
+    IEnumerator GetFlashed(float knockBackForce)
+    {
+        view.SetMaterialToWhite();
+        yield return new WaitForSeconds(knockBackForce/model.GetMass()/12f);
+        view.SetMaterialToDefoult();
+    }
+
+    IEnumerator GetKnockBack(float knockBackDuration, float knockBackForce, Vector3 impactPos, float damage)
+    {
+        model.SetBeingKnockedBack(true);
+
+        Vector2 pos = model.GetRbPos();
+
+        Vector2 knockDirection = (pos - new Vector2(impactPos.x, impactPos.y)).normalized;
+
+        model.AddImpulseForceToRb(knockDirection * knockBackForce/model.GetMass());
+
+        yield return new WaitForSeconds(knockBackDuration / model.GetMass());
+
+        model.SetRbAngularVelocity(0f);
+
+        model.SetRbVelocity(Vector2.zero);
+
+        model.SetBeingKnockedBack(false);
+
+        TakeDamage(damage);
+
+
     }
 }

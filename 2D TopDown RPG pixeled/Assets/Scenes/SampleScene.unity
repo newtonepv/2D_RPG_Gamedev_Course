@@ -2639,6 +2639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda72f84ccca05246afb049a7a8e72e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whiteMaterial: {fileID: 2100000, guid: e91814fa8151bac499c68f693ddd49b5, type: 2}
+  normalMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
 --- !u!114 &1749186372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,7 +2727,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860a0f5f2db9af14d9edba3160bc7381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetOfSlashAnim: {x: 0.85, y: 0.2, z: 0}
+  offsetOfSlashAnim: {x: 0.85, y: 0.42, z: 0}
+  knockbackDuration: 0.36
+  shouldDamageSlimes: 1
+  damage: 4.83
+  knockBackForce: 2.09
+  dealingDamageAvaliable: 0
 --- !u!114 &1899528617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2860,9 +2867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91bb7447d7e41f43a1a94f030380509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldDamageSlimes: 1
-  damage: 5
-  dealingDamageAvaliable: 0
 --- !u!1 &1919915446
 GameObject:
   m_ObjectHideFlags: 0
