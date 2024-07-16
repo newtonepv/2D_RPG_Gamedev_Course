@@ -2615,6 +2615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.7
   health: 12.7
+  deathParticles: {fileID: 1286266156253748876, guid: 784db38107815f84d92b4292712ee163, type: 3}
 --- !u!114 &1749186370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2728,11 +2729,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetOfSlashAnim: {x: 0.85, y: 0.42, z: 0}
-  knockbackDuration: 0.36
   shouldDamageSlimes: 1
   damage: 4.83
   knockBackForce: 2.09
   dealingDamageAvaliable: 0
+  knockbackDuration: 0.36
 --- !u!114 &1899528617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2906,6 +2907,63 @@ Transform:
   - {fileID: 1513745709}
   m_Father: {fileID: 1604548133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2287994312676131883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.011072209
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680852015766982612, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286266156253748876, guid: 784db38107815f84d92b4292712ee163, type: 3}
+      propertyPath: m_Name
+      value: Slime Death Particles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 784db38107815f84d92b4292712ee163, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2916,3 +2974,4 @@ SceneRoots:
   - {fileID: 1604548133}
   - {fileID: 1587862876}
   - {fileID: 1749186368}
+  - {fileID: 2287994312676131883}

@@ -18,7 +18,6 @@ public class SlimeController : MonoBehaviour
 
     List<Vector2> path;
 
-    bool readyToTakeDamage = true;
 
     private void Awake()
     {
@@ -98,6 +97,8 @@ public class SlimeController : MonoBehaviour
     }
     void Die()
     {
+         GameObject particleSys = Instantiate(model.GetDeathParticles(), model.GetPosition(),Quaternion.identity);
+        Destroy(particleSys, particleSys.GetComponent<ParticleSystem>().main.duration);
          Destroy(this.gameObject);
     }
     

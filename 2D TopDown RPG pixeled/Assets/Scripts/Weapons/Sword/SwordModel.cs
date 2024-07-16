@@ -6,12 +6,8 @@ public class SwordModel : MonoBehaviour
 {
     [SerializeField] Vector3 offsetOfSlashAnim;
 
-    [SerializeField] float knockbackDuration;
-    public float GetKockbackDuration()
-    {
-        return knockbackDuration;
-    }
-
+    
+    [Header("For Damage Dealing")]
     [SerializeField] bool shouldDamageSlimes;
     public bool GetShouldDamageSlimes() { return shouldDamageSlimes; }
     public void SetShouldDamageSlimes(bool shouldDamageSlimes)
@@ -48,7 +44,11 @@ public class SwordModel : MonoBehaviour
         this.dealingDamageAvaliable = dealingDamageAvaliable;
     }
 
-
+    [SerializeField] float knockbackDuration;
+    public float GetKockbackDuration()
+    {
+        return knockbackDuration;
+    }
     private void Awake()
     {
         

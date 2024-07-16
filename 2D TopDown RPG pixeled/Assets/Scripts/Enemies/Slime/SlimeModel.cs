@@ -9,6 +9,12 @@ public class SlimeModel : MonoBehaviour
 
     [SerializeField] float health;
 
+    [SerializeField] GameObject deathParticles;
+
+    public GameObject GetDeathParticles()
+    {
+        return deathParticles;
+    }
 
     Action ArrivedToPlace;
 
@@ -19,7 +25,10 @@ public class SlimeModel : MonoBehaviour
     bool beingKnockedBack;
 
     
-
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
     public void SetBeingKnockedBack(bool beingKnockedBack)
     {
         this.beingKnockedBack = beingKnockedBack;
