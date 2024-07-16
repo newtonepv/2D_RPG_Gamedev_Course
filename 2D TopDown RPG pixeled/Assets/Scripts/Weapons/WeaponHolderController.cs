@@ -29,21 +29,14 @@ public class WeaponHolderController : MonoBehaviour
     {
         Vector3 screenMousePos = Input.mousePosition;
 
-        Vector3 screenPlayerPos = Camera.main.WorldToScreenPoint(transform.position);
-
-        Vector3 relativeScreenMousPos = screenMousePos - screenPlayerPos;
-
-        float angle = Mathf.Atan2(relativeScreenMousPos.y, relativeScreenMousPos.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(screenMousePos.y, screenMousePos.x) * Mathf.Rad2Deg;
 
         /*if (Mathf.Cos(angle) < 0) {
             angle = 180 - angle;
         }*/
 
-        Vector3 actualRot = model.GetRotation();
-
-        Vector3 newRot = new Vector3(actualRot.x, actualRot.y, angle);
-
+        Vector3 actualWeaponHolderRot = model.GetRotation();
+        Vector3 newRot = new Vector3(actualWeaponHolderRot.x, actualWeaponHolderRot.y, angle);
         model.SetRotation(newRot);
     }
-
-}
+ }

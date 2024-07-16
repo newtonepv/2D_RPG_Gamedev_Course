@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class SwordModel : MonoBehaviour
 {
+    [SerializeField] Vector3 offsetOfSlashAnim;
     void Start()
     {
-        
+
     }
+
+    public Vector3 GetOffsetOfSlashAnim(){
+        return offsetOfSlashAnim;
+    }
+
+    public void SetOffsetOfSlashAnim(Vector3 offsetOfSlashAnim) {
+    this.offsetOfSlashAnim = offsetOfSlashAnim;
+    }
+
+    
+
     public Vector3 GetRotation()
     {
         return transform.eulerAngles;

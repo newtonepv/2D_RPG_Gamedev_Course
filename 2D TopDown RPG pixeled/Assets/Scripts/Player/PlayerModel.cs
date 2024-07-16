@@ -8,6 +8,8 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] float moveSpeed;
 
     Rigidbody2D rb;
+
+    bool facingLeft;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,9 +27,25 @@ public class PlayerModel : MonoBehaviour
     {
         transform.eulerAngles = rotation;
     }
+
+    public bool GetFacingLeft()
+    {
+    return facingLeft; 
+    }
+    public void SetFacingLeft(bool facingLeft)
+    {
+        this.facingLeft = facingLeft;
+    }
+
     public Vector3 GetRotation()
     {
         return transform.eulerAngles;
+    }
+
+
+    public Quaternion GetQuaternionRotation()
+    {
+        return transform.rotation;
     }
 
     public float GetMoveSpeed()

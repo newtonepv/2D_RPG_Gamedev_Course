@@ -67,9 +67,11 @@ public class PlayerController : MonoBehaviour
     private void TurnLeft(bool turnLeft)
     {
 
-        playerView.TurnSpriteToLeft(turnLeft);
-        /*Vector3 actualRot = playerModel.GetRotation();
+        //playerView.TurnSpriteToLeft(turnLeft);
+        Vector3 actualRot = playerModel.GetRotation();
 
+        playerModel.SetFacingLeft(turnLeft);
+        
         if (turnLeft)
         {
             playerModel.SetRotation(new Vector3(actualRot.x, 180, actualRot.z));
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerModel.SetRotation(new Vector3(actualRot.x, 0, actualRot.z));
-        }*/
+        }
     }
 
     void GetMovementInput()
