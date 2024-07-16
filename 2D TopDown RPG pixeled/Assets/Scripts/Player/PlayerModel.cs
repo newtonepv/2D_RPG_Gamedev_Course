@@ -18,7 +18,18 @@ public class PlayerModel : MonoBehaviour
         Vector2 delta2d = movement * moveSpeed * Time.fixedDeltaTime;
 
         rb.MovePosition(transform.position + new Vector3(delta2d.x, delta2d.y, 0));
+
     }
+
+    public void SetRotation(Vector3 rotation)
+    {
+        transform.eulerAngles = rotation;
+    }
+    public Vector3 GetRotation()
+    {
+        return transform.eulerAngles;
+    }
+
     public float GetMoveSpeed()
     {
         return this.moveSpeed;

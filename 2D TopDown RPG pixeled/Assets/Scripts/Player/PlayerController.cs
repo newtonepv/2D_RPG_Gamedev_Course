@@ -34,20 +34,20 @@ public class PlayerController : MonoBehaviour
         GetMovementInput();
 
 
-        Flip_Sprite_Based_On_Mouse_Pos_Relative_To_Player();
+        Flip_Player_Based_On_Mouse_Pos_Relative_To_Player();
     }
 
-    private void Flip_Sprite_Based_On_Mouse_Pos_Relative_To_Player()
+    private void Flip_Player_Based_On_Mouse_Pos_Relative_To_Player()
     {
         Vector3 screenPlayerPoint = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 screenMousePoint = Input.mousePosition;
 
         if(screenMousePoint.x < screenPlayerPoint.x)
         {
-            TurnSprite(true);
+            TurnLeft(true);
         }
         else{
-            TurnSprite(false);
+            TurnLeft(false);
         }
     }
 
@@ -64,9 +64,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void TurnSprite(bool x)
+    private void TurnLeft(bool turnLeft)
     {
-        playerView.TurnSpriteToLeft(x);
+
+        playerView.TurnSpriteToLeft(turnLeft);
+        /*Vector3 actualRot = playerModel.GetRotation();
+
+        if (turnLeft)
+        {
+            playerModel.SetRotation(new Vector3(actualRot.x, 180, actualRot.z));
+        }
+        else
+        {
+            playerModel.SetRotation(new Vector3(actualRot.x, 0, actualRot.z));
+        }*/
     }
 
     void GetMovementInput()
