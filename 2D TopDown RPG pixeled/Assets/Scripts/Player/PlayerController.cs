@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         GetMovementInput();
 
-        Debug.Log(movement.ToString());
 
         Flip_Sprite_Based_On_Mouse_Pos_Relative_To_Player();
     }
@@ -62,8 +61,6 @@ public class PlayerController : MonoBehaviour
         playerView.SetMoveY(movement.y);
 
         playerModel.MoveTowards(movement);
-
-
 
     }
 
