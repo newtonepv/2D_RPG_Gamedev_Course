@@ -75,4 +75,22 @@ public class SlimeController : MonoBehaviour
         }
         
     }
+
+    public void TakeDamage(float damage)
+    {
+        float health = model.GetHealth();
+        if (health > damage)
+        {
+            Debug.Log("tookDamage");
+            model.SetHealth(health-damage);
+        }
+        else
+        {
+            Die();
+        }
+        void Die()
+        {
+            Debug.Log("died");
+        }
+    }
 }

@@ -15,7 +15,7 @@ public class SwordView : MonoBehaviour
     {
         
     }
-    public void Attack()
+    public void AttackAnim()
     {
         animator.SetTrigger("Attack");
     }

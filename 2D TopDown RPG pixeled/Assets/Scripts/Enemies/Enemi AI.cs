@@ -55,7 +55,6 @@ public class EnemyAI : MonoBehaviour
 
             slimeController.SetPath(enemyPathFinding.GetPath());
 
-            Debug.Log(wantsANewPath);
 
             yield return new WaitUntil(()=>wantsANewPath);
 

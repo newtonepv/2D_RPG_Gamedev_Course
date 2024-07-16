@@ -7,6 +7,8 @@ public class SlimeModel : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
 
+    [SerializeField] float health;
+
     Action ArrivedToPlace;
 
     Vector2 destination;
@@ -54,5 +56,13 @@ public class SlimeModel : MonoBehaviour
         return rb.position;
     }
     
+    public void SetHealth(float health)
+    {
+        this.health = health;
+    }
+    public float GetHealth()
+    {
+        return health;
+    }
 
 }

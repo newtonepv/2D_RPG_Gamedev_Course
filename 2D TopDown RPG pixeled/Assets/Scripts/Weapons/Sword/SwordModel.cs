@@ -5,10 +5,20 @@ using UnityEngine;
 public class SwordModel : MonoBehaviour
 {
     [SerializeField] Vector3 offsetOfSlashAnim;
+
+    DamageDealing damageDealing;
+    private void Awake()
+    {
+        damageDealing = GetComponent<DamageDealing>();
+    }
+
     void Start()
     {
 
     }
+
+    public bool GetDealingDamageAvaliable()=> damageDealing.GetDealingDamageAvaliable();
+    public void SetDealingDamageAvaliable(bool value) {damageDealing.SetDealingDamageAvaliable(value);}
 
     public Vector3 GetOffsetOfSlashAnim(){
         return offsetOfSlashAnim;

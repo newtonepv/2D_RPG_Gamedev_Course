@@ -34,7 +34,7 @@ public class PlayerModel : MonoBehaviour
     }
     public void SetFacingLeft(bool facingLeft)
     {
-        this.facingLeft = facingLeft;
+    this.facingLeft = facingLeft;
     }
 
     public Vector3 GetRotation()

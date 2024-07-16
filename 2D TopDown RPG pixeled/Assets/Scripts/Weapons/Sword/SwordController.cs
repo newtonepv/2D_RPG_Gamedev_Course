@@ -20,6 +20,7 @@ public class SwordController : MonoBehaviour
     {
         view = GetComponent<SwordView>();
         model = GetComponent<SwordModel>();
+
         playerModel = GetComponentInParent<PlayerModel>();
 
         playerInputActions = new PlayerInputActions();
@@ -40,7 +41,7 @@ public class SwordController : MonoBehaviour
     }
     void Attack()
     {
-        view.Attack();
+        view.AttackAnim();
 
         Vector3 offset = model.GetOffsetOfSlashAnim();
 
@@ -48,16 +49,23 @@ public class SwordController : MonoBehaviour
 
         offset.x *= facingLeft ? -1 : 1;
 
-
-
         slashAnimationInstance = Instantiate(slashAnimation, 
                                             slashAnimationSpawner.position+offset,
                                             playerModel.GetQuaternionRotation(),
                                             this.transform.parent
                                             );
 
-
     }
+
+    void SetDamageDealingAvaliable()
+    {
+        model.SetDealingDamageAvaliable(true);
+    }
+    void SetDamageDealingNotAvaliable()
+    {
+        model.SetDealingDamageAvaliable(false);
+    }
+
     void FlipSlashAnimationUp()
     {
         if(slashAnimationInstance.TryGetComponent<SlashAnimationModel>(out SlashAnimationModel slashAnimationModel))
