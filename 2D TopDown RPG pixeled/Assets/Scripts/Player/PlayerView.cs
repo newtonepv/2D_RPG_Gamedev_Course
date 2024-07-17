@@ -10,6 +10,8 @@ public class PlayerView : MonoBehaviour
     Animator playerAnimator;
     SpriteRenderer playerSpriteRenderer;
 
+    
+
     public void TurnSpriteToLeft(bool shouldTurnSpriteToLeft)
     {
         playerSpriteRenderer.flipX = shouldTurnSpriteToLeft;

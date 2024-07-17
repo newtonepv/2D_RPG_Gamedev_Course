@@ -56,12 +56,12 @@ public class SwordController : MonoBehaviour
     void StartAttacking()
     {
         model.SetAttackButtonDown(true); 
-        Debug.Log(model.GetAttackButtonDown());
+        //Debug.Log(model.GetAttackButtonDown());
     }
     void StopAttacking()
     {
         model.SetAttackButtonDown(false);
-        Debug.Log(model.GetAttackButtonDown());
+        //Debug.Log(model.GetAttackButtonDown());
     }
     void Attack()
     {
