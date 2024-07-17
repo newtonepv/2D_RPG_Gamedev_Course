@@ -16,7 +16,7 @@ public class SwordModel : MonoBehaviour
         return this.attackButtonDown;
     }
 
-    [SerializeField]float attackingDelay;
+    [SerializeField] float attackingDelay;
 
     public float GetAttackingDelay()
     {

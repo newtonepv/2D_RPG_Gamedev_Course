@@ -19,6 +19,11 @@ public class SwordController : MonoBehaviour
     DamageDealing damageDealing;
 
     bool attackingCoroutineIsRunning;
+
+    public bool GetAttackingCoroutineIsRunning()
+    {
+
+    return attackingCoroutineIsRunning; }
     private void Awake()
     {
         view = GetComponent<SwordView>();

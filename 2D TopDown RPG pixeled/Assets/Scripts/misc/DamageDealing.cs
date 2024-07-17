@@ -56,7 +56,6 @@ public class DamageDealing : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("pepe");
         if (dealingDamageAvaliable)
         {
         if (shouldDamageSlimes)

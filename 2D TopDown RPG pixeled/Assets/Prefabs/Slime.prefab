@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76f384943bc51a4db8babdc37ad9a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wanderingRange: 6.04
 --- !u!114 &9125569454672133628
 MonoBehaviour:
   m_ObjectHideFlags: 0

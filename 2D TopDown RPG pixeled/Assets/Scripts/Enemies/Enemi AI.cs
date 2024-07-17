@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemyAI : MonoBehaviour
 {
     EnemyPathFinding enemyPathFinding;
     SlimeController slimeController;
+
+    [SerializeField] float wanderingRange;
 
     enum State
     {
@@ -65,7 +68,7 @@ public class EnemyAI : MonoBehaviour
 
     Vector2 GetNextRoamingPos()
     {
-        return ( new Vector2(Random.Range(-1,1), Random.Range(-1,1)) ).normalized;
+        return ( new Vector2(Random.Range(-1,1)* wanderingRange, Random.Range(-1,1)* wanderingRange) ).normalized;
     }
 
 

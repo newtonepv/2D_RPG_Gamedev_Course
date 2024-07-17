@@ -68,7 +68,7 @@ MonoBehaviour:
   attackingDelay: 0.22
   shouldDamageSlimes: 1
   damage: 4.83
-  knockBackForce: 2.09
+  knockBackForce: 2.81
   dealingDamageAvaliable: 0
   knockbackDuration: 0.36
 --- !u!114 &1351294541984117966
@@ -546,7 +546,7 @@ Transform:
   m_GameObject: {fileID: 7015353845124514416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.79, y: 2.11, z: 0}
+  m_LocalPosition: {x: -0.77, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
