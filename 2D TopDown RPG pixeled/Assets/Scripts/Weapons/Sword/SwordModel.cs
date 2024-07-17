@@ -6,6 +6,27 @@ public class SwordModel : MonoBehaviour
 {
     [SerializeField] Vector3 offsetOfSlashAnim;
 
+    bool attackButtonDown;
+    public void SetAttackButtonDown(bool isAttacking)
+    {
+        this.attackButtonDown = isAttacking;
+    }
+    public bool GetAttackButtonDown()
+    {
+        return this.attackButtonDown;
+    }
+
+    [SerializeField]float attackingDelay;
+
+    public float GetAttackingDelay()
+    {
+        return attackingDelay;
+    }
+    public void SetAttackingDelay(float attackingDelay)
+    {
+        this.attackingDelay = attackingDelay;
+    }
+    
     
     [Header("For Damage Dealing")]
     [SerializeField] bool shouldDamageSlimes;

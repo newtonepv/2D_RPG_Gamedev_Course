@@ -17,6 +17,8 @@ public class SwordController : MonoBehaviour
     PlayerInputActions playerInputActions;
     GameObject slashAnimationInstance;
     DamageDealing damageDealing;
+
+    bool attackingCoroutineIsRunning;
     private void Awake()
     {
         view = GetComponent<SwordView>();
@@ -48,7 +50,18 @@ public class SwordController : MonoBehaviour
 
     void Start()
     {
-        playerInputActions.Combat.Attack.started += _ => Attack();
+        playerInputActions.Combat.Attack.started += _ => StartAttacking();
+        playerInputActions.Combat.Attack.canceled += _ => StopAttacking();
+    }
+    void StartAttacking()
+    {
+        model.SetAttackButtonDown(true); 
+        Debug.Log(model.GetAttackButtonDown());
+    }
+    void StopAttacking()
+    {
+        model.SetAttackButtonDown(false);
+        Debug.Log(model.GetAttackButtonDown());
     }
     void Attack()
     {
@@ -88,6 +101,31 @@ public class SwordController : MonoBehaviour
     }
     void Update()
     {
-        
+        AttackCoroutineHandler();
+    }
+
+    private void AttackCoroutineHandler()
+    {
+        if (model.GetAttackButtonDown())
+        {
+            if (!attackingCoroutineIsRunning)
+            {
+                StartCoroutine(AttackingCoroutine());
+            }
+        }
+
+    }
+
+    IEnumerator AttackingCoroutine()
+    {
+        attackingCoroutineIsRunning = true;
+
+        Attack();
+
+        yield return new WaitForSeconds(model.GetAttackingDelay());
+
+        attackingCoroutineIsRunning = false;
+
+
     }
 }
