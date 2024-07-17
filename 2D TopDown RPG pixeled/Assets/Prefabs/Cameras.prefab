@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 4779150338903270242, guid: 204c0a0b2fb186740a90527252b68a71, type: 3}
   m_AnimatedTarget: {fileID: 0}
   m_LayerIndex: 0
   m_ShowDebugText: 0
@@ -556,9 +556,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 27.382122}
-      - {x: -39.399418, y: 26.691141}
+    - - {x: -38.62712, y: 26.691141}
       - {x: -38.627125, y: -27.39565}
-      - {x: 38.83074, y: -27.30748}
-      - {x: 38.746376, y: 27.130276}
+      - {x: 38.74638, y: -27.39565}
+      - {x: 38.746376, y: 26.69114}
   m_UseDelaunayMesh: 0

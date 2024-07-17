@@ -50,7 +50,6 @@ public class SwordController : MonoBehaviour
 
     private void OnDisable()
     {
-        playerInputActions.Disable();
     }
 
     void Start()

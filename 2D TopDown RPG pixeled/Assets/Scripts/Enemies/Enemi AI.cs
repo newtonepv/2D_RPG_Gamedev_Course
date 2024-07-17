@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] float wanderingRange;
 
+    Vector2 initialPos;
+
     enum State
     {
         Roaming
@@ -21,6 +23,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+        initialPos = (Vector2)transform.position;
+
         slimeController = GetComponent<SlimeController>();
 
         wantsANewPath = false;
@@ -68,7 +72,7 @@ public class EnemyAI : MonoBehaviour
 
     Vector2 GetNextRoamingPos()
     {
-        return ( new Vector2(Random.Range(-1,1)* wanderingRange, Random.Range(-1,1)* wanderingRange) ).normalized;
+        return  new Vector2(Random.Range(-1,1)* wanderingRange, Random.Range(-1,1)* wanderingRange)+ initialPos;
     }
 
 

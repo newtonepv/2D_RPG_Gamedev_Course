@@ -60,6 +60,7 @@ public class TransparencyOnTriggerEnterByPlayer : MonoBehaviour
 
     IEnumerator FadeRoutine(SpriteRenderer spriteRenderer, float fadeTime, float starting, float targetTransparency)
     {
+
         float elapsedTime = 0;
         float newAlpha = 0;
         while (elapsedTime < fadeTime)
@@ -82,5 +83,8 @@ public class TransparencyOnTriggerEnterByPlayer : MonoBehaviour
             yield return null;
         }
     }
-
+    /*private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }*/
 }

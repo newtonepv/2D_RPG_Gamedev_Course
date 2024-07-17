@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     Vector2 movement;
     PlayerInputActions playerInputActions;
     PlayerView view;
     PlayerModel model;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         movement = new Vector2 (0, 0);
 
         view = GetComponent<PlayerView>();
@@ -28,8 +30,13 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDisable()
     {
-        playerInputActions.Disable();
     }
+
+    public void SetPos(Vector3 pos)
+    {
+        model.SetPos(pos);
+    }
+
     void Update()
     {
         GetMovementInput();

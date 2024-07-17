@@ -110,5 +110,9 @@ public class PlayerModel : MonoBehaviour
         return transform.rotation;
     }
 
+    public void SetPos(Vector3 pos)
+    {
+        transform.position = pos;
+    }
 
 }
