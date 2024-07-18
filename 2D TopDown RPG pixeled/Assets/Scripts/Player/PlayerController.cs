@@ -114,9 +114,9 @@ public class PlayerController : Singleton<PlayerController>
     {
 
         //playerView.TurnSpriteToLeft(turnLeft);
+        model.SetFacingLeft(turnLeft);
         Vector3 actualRot = model.GetRotation();
 
-        model.SetFacingLeft(turnLeft);
         
         if (turnLeft)
         {

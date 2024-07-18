@@ -53,12 +53,16 @@ public class Inventory : MonoBehaviour
             Destroy(ActiveWeapon.Instance.currentActiveWeapon.gameObject);
         }
         GameObject activeWeapon = this.transform.GetChild(activeSlot).GetComponent<InventorySlot>().GetWeaponInfo().weeaponPrefab;
+
         GameObject activeWeaponInstance = Instantiate(activeWeapon, ActiveWeapon.Instance.transform.position,Quaternion.identity);
+        ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0,0,0);
         activeWeaponInstance.transform.parent = ActiveWeapon.Instance.transform;
+
         if (activeSlot == 0)
         {
             ActiveWeapon.Instance.currentActiveWeapon = activeWeaponInstance.GetComponent<SwordController>();
-        }else if (activeSlot == 1)
+        }
+        else if (activeSlot == 1)
         {
             ActiveWeapon.Instance.currentActiveWeapon = activeWeaponInstance.GetComponent<Bow>();
         }

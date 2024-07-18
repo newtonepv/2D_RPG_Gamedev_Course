@@ -5,7 +5,6 @@ using UnityEngine;
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
     public MonoBehaviour currentActiveWeapon;
-    [SerializeField] Transform slashAnimationSpawner;
 
     PlayerInputActions playerInputActions;
 
@@ -53,10 +52,5 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
             (currentActiveWeapon as IWeapon).Attack();
         }
 
-    }
-    public Transform GetSlashAnimationSpawner()
-    {
-        Debug.Log("gotCalled");
-        return slashAnimationSpawner;
     }
 }

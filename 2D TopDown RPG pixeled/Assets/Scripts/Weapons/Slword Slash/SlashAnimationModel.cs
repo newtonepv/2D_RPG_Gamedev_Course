@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class SlashAnimationModel : MonoBehaviour
 {
@@ -13,11 +14,7 @@ public class SlashAnimationModel : MonoBehaviour
 
     public void SetXRotation(float xRot)
     {
-        Vector3 currentRotation = transform.eulerAngles;
 
-        currentRotation.x = xRot;
-
-        transform.eulerAngles = currentRotation;
     }
 
     void Start()

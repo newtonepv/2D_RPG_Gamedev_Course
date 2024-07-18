@@ -11,11 +11,9 @@ public class SwordController : MonoBehaviour, IWeapon
 
     bool facingLeft;
 
-    Transform slashAnimationSpawner;
-    [SerializeField] GameObject slashAnimation;
 
-    GameObject slashAnimationInstance;
     DamageDealing damageDealing;
+    TrailRenderer trailRenderer;
 
 
     private void Awake()
@@ -25,6 +23,7 @@ public class SwordController : MonoBehaviour, IWeapon
 
         TryGetComponent<DamageDealing>(out damageDealing);
 
+        trailRenderer= GetComponentInChildren<TrailRenderer>();
 
     }
 
@@ -35,11 +34,9 @@ public class SwordController : MonoBehaviour, IWeapon
     }
     void Start()
     {
-        slashAnimationSpawner = ActiveWeapon.Instance.GetSlashAnimationSpawner();
         hasStarted = true;
     }
 
-    //called in the animator
     void SetDamageDealingAvaliable()
     {
         damageDealing.SetDealingDamageAvaliable(true);
@@ -50,10 +47,6 @@ public class SwordController : MonoBehaviour, IWeapon
     }
     void FlipSlashAnimationUp()
     {
-        if(slashAnimationInstance.TryGetComponent<SlashAnimationModel>(out SlashAnimationModel slashAnimationModel))
-        {
-            slashAnimationModel.SetXRotation(180f);
-        }
     }
     //
     //
@@ -63,20 +56,12 @@ public class SwordController : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        if (slashAnimationSpawner)
-        {
             view.AttackAnim();
-            Vector3 offset = model.GetOffsetOfSlashAnim();
             facingLeft = PlayerController.Instance.GetFacingLeft();
-            offset.x *= facingLeft ? -1 : 1;
+            trailRenderer.emitting = true;
 
-            slashAnimationInstance = Instantiate(slashAnimation,
-                                                slashAnimationSpawner.position + offset,
-                                                PlayerController.Instance.GetQuaternionRotation(),
-                                                this.transform.parent
-                                                );
+
             StartCoroutine(AttackingCoroutine());
-        }
         
     }
 
@@ -86,6 +71,8 @@ public class SwordController : MonoBehaviour, IWeapon
 
         yield return new WaitForSeconds(model.GetAttackingDelay());
         ActiveWeapon.Instance.ToggleAttackIsCoolingDown(false);
+        trailRenderer.emitting = false;
+
 
     }
     void OnDestroy()
