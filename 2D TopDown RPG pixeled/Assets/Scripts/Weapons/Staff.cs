@@ -5,6 +5,11 @@ using UnityEngine;
 public class Staff : MonoBehaviour, IWeapon
 {
     bool hasStarted = false;
+    [SerializeField] WeaponInfoSO weaponInfo;
+    public WeaponInfoSO GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
     public bool HasStarted()
     {
         return hasStarted;
@@ -16,7 +21,6 @@ public class Staff : MonoBehaviour, IWeapon
     public void Attack()
     {
         Debug.Log("StaffAttack");
-        ActiveWeapon.Instance.ToggleAttackIsCoolingDown(false);
 
     }
     void Update()

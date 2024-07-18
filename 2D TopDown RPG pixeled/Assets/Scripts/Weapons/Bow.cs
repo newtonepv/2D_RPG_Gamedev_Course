@@ -5,6 +5,13 @@ using UnityEngine;
 public class Bow : MonoBehaviour, IWeapon
 {
     bool hasStarted = false;
+    [SerializeField] GameObject arrow;
+    [SerializeField] Transform arrowSpawnPoint;
+    [SerializeField] WeaponInfoSO weaponInfo;
+    public WeaponInfoSO GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
     public bool HasStarted()
     {
         return hasStarted;
@@ -16,6 +23,5 @@ public class Bow : MonoBehaviour, IWeapon
     public void Attack()
     {
         Debug.Log("BowAttack");
-        ActiveWeapon.Instance.ToggleAttackIsCoolingDown(false);
     }
 }

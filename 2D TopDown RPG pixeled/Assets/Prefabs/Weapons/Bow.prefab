@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6345e21f9176c4a84f4433c525c173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrow: {fileID: 0}
+  arrowSpawnPoint: {fileID: 0}
+  weaponInfo: {fileID: 11400000, guid: 4b99c1080fcb090428168db6e35eb5ed, type: 2}
 --- !u!212 &8654784982755548108
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -47,11 +47,11 @@ public class Inventory : MonoBehaviour
 
     void ChangeHoldingWeapon()
     {
-        if (ActiveWeapon.Instance.currentActiveWeapon)
+        if (ActiveWeapon.Instance.GetCurrentActiveWeapon())
         {
-            ActiveWeapon.Instance.ToggleAttackIsCoolingDown(false);
-            Destroy(ActiveWeapon.Instance.currentActiveWeapon.gameObject);
+            Destroy(ActiveWeapon.Instance.GetCurrentActiveWeapon().gameObject);
         }
+
         GameObject activeWeapon = this.transform.GetChild(activeSlot).GetComponent<InventorySlot>().GetWeaponInfo().weeaponPrefab;
 
         GameObject activeWeaponInstance = Instantiate(activeWeapon, ActiveWeapon.Instance.transform.position,Quaternion.identity);
@@ -60,15 +60,15 @@ public class Inventory : MonoBehaviour
 
         if (activeSlot == 0)
         {
-            ActiveWeapon.Instance.currentActiveWeapon = activeWeaponInstance.GetComponent<SwordController>();
+            ActiveWeapon.Instance.SetCurrentActiveWeapon(activeWeaponInstance.GetComponent<SwordController>()) ;
         }
         else if (activeSlot == 1)
         {
-            ActiveWeapon.Instance.currentActiveWeapon = activeWeaponInstance.GetComponent<Bow>();
+            ActiveWeapon.Instance.SetCurrentActiveWeapon(activeWeaponInstance.GetComponent<Bow>()) ;
         }
         else if (activeSlot == 2)
         {
-            ActiveWeapon.Instance.currentActiveWeapon = activeWeaponInstance.GetComponent<Staff>();
+            ActiveWeapon.Instance.SetCurrentActiveWeapon(activeWeaponInstance.GetComponent<Staff>()) ;
         }
     }
 
