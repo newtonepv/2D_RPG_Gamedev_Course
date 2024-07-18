@@ -135,4 +135,9 @@ public class PlayerController : Singleton<PlayerController>
             movement = playerInputActions.Player.Move.ReadValue<Vector2>();
         //}
     }
+
+    public bool GetFacingLeft() => model.GetFacingLeft();
+    
+
+    public Quaternion GetQuaternionRotation()=>model.GetQuaternionRotation();
 }

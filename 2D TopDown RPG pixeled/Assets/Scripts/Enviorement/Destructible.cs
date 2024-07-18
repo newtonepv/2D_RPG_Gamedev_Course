@@ -34,8 +34,8 @@ public class Destructible : MonoBehaviour
     }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SwordController swordController = collision.gameObject.GetComponent<SwordController>();
-        if (swordController != null && swordController.GetAttackingCoroutineIsRunning())
+        DamageDealing damageDealing = collision.gameObject.GetComponent<DamageDealing>();
+        if (damageDealing != null && damageDealing.GetIsDealingDamage())
         {
             Die();
 

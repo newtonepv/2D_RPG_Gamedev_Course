@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,29 +6,33 @@ using UnityEngine;
 
 public class DamageDealing : MonoBehaviour
 {
-    bool shouldDamageSlimes;
+    [SerializeField] bool shouldDamageSlimes;
     public bool GetShouldDamageSlimes() { return shouldDamageSlimes; }
+    public void SetShouldDamageSlimes(bool shouldDamageSlimes)
+    {
+        this.shouldDamageSlimes = shouldDamageSlimes;
+    }
 
-    float damage;
+    [SerializeField] float damage;
+    public float GetDamage() { return damage; }
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
 
-    float knockBackForce;
+    [SerializeField] float knockBackForce;
     public float GetKnockBackForce()
     {
 
-    return knockBackForce; }
-
-    bool dealingDamageAvaliable = false;
-
-    float knockbackDuration;
-
-    public float GetKockbackDuration()
-    {
-    return knockbackDuration; }
-
-    public void SetKockbackDuration(float knockbackDuration)
-    {
-        this.knockbackDuration = knockbackDuration;
+        return knockBackForce;
     }
+    public void SetKnockBackForce(float knockBackForce)
+    {
+        this.knockBackForce = knockBackForce;
+    }
+
+
+    [SerializeField] bool dealingDamageAvaliable = false;
     public bool GetDealingDamageAvaliable()
     {
         return dealingDamageAvaliable;
@@ -35,20 +40,12 @@ public class DamageDealing : MonoBehaviour
     public void SetDealingDamageAvaliable(bool dealingDamageAvaliable)
     {
         this.dealingDamageAvaliable = dealingDamageAvaliable;
-
     }
 
-    public void SetKnockBackForce(float knockBackForce)
+    [SerializeField] float knockbackDuration;
+    public float GetKockbackDuration()
     {
-        this.knockBackForce = knockBackForce;
-    }
-    public void SetDamage(float damage)
-    {
-        this.damage = damage;
-    }
-    public void SetShouldDamageSlimes(bool shouldDamageSlimes)
-    {
-        this.shouldDamageSlimes = shouldDamageSlimes;
+        return knockbackDuration;
     }
 
  
@@ -66,5 +63,10 @@ public class DamageDealing : MonoBehaviour
             }
         }
         }
+    }
+
+    public bool GetIsDealingDamage()
+    {
+        return dealingDamageAvaliable;
     }
 }
