@@ -12,6 +12,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         if(instance != null && this.gameObject != null)
         {
             Destroy(this.gameObject);
+            Debug.Log("destroyed the one we were trying to create");
         }
         else
         {

@@ -346,12 +346,12 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 4779150338903270242, guid: 204c0a0b2fb186740a90527252b68a71, type: 3}
+  m_Follow: {fileID: 0}
   m_AnimatedTarget: {fileID: 0}
   m_LayerIndex: 0
   m_ShowDebugText: 0
   m_ChildCameras:
-  - {fileID: 8065471188396839993}
+  - {fileID: 0}
   m_Instructions: []
   m_DefaultBlend:
     m_Style: 1
@@ -556,8 +556,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -38.62712, y: 26.691141}
-      - {x: -38.627125, y: -27.39565}
-      - {x: 38.74638, y: -27.39565}
-      - {x: 38.746376, y: 26.69114}
+    - - {x: -23.8, y: 19.8}
+      - {x: -23.8, y: -18}
+      - {x: 32.8, y: -18}
+      - {x: 32.8, y: 19.8}
   m_UseDelaunayMesh: 0

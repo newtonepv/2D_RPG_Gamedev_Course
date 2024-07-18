@@ -23,8 +23,8 @@ public class AreaExit : MonoBehaviour
     {
 
         FadeScript.Instance.FadeToBlack();
-        yield return new WaitForSeconds(delay);
         SceneManagmentScript.Instance.SetEntrance(entranceName);
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
 
     }

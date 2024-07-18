@@ -26,10 +26,13 @@ public class TransparencyOnTriggerEnterByPlayer : MonoBehaviour
     {
 
     }
-
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerModel>())
+        if (collision.gameObject.GetComponent<PlayerModel>()&& gameObject.activeInHierarchy)
         {
 
             if (tilemapRenderer)
@@ -45,7 +48,7 @@ public class TransparencyOnTriggerEnterByPlayer : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerModel>())
+        if (collision.gameObject.GetComponent<PlayerModel>() && gameObject.activeInHierarchy)
         {
             if (tilemapRenderer)
             {
@@ -83,8 +86,8 @@ public class TransparencyOnTriggerEnterByPlayer : MonoBehaviour
             yield return null;
         }
     }
-    /*private void OnDestroy()
+    private void OnDestroy()
     {
         StopAllCoroutines();
-    }*/
+    }
 }

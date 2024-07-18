@@ -12,6 +12,7 @@ public class SceneManagmentScript : Singleton<SceneManagmentScript>
     }
     public void SetEntrance(string entrance)
     {
+        Debug.Log("Setted entrance to "+entrance);
         this.entrance = entrance;
     }
 
@@ -20,7 +21,6 @@ public class SceneManagmentScript : Singleton<SceneManagmentScript>
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
