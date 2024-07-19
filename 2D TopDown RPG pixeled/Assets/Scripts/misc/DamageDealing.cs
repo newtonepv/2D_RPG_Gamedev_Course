@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class DamageDealing : MonoBehaviour
 {
+    Vector3 damageSource;
+
+
     [SerializeField] bool shouldDamageSlimes;
     public bool GetShouldDamageSlimes() { return shouldDamageSlimes; }
     public void SetShouldDamageSlimes(bool shouldDamageSlimes)
@@ -48,7 +51,13 @@ public class DamageDealing : MonoBehaviour
         return knockbackDuration;
     }
 
- 
+
+
+
+    private void Start()
+    {
+        damageSource = PlayerController.Instance.transform.position;
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,10 +66,14 @@ public class DamageDealing : MonoBehaviour
         {
         if (shouldDamageSlimes)
         {
-            if (collision.gameObject.TryGetComponent<SlimeController>(out SlimeController slimeController))
-             {
-                    slimeController.StartKnockBack(knockbackDuration, knockBackForce, transform.position, damage);
-            }
+                if (collision.gameObject.TryGetComponent<SlimeController>(out SlimeController slimeController))
+                {
+                    if (PlayerController.Instance)
+                    {
+                        damageSource = PlayerController.Instance.transform.position;
+                    }
+                    slimeController.StartKnockBack(knockbackDuration, knockBackForce, damageSource, damage);
+                }
         }
         }
     }

@@ -98,7 +98,7 @@ public class SlimeController : MonoBehaviour
     void Die()
     {
          GameObject particleSys = Instantiate(model.GetDeathParticles(), model.GetPosition(),Quaternion.identity);
-        Destroy(particleSys, particleSys.GetComponent<ParticleSystem>().main.duration);
+         Destroy(particleSys, particleSys.GetComponent<ParticleSystem>().main.duration);
          Destroy(this.gameObject);
     }
     

@@ -84,6 +84,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5684269196971230593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3579714008667769401}
+  m_Layer: 0
+  m_Name: LasertSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3579714008667769401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684269196971230593}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.004506567, y: -0.0019724264, z: -0.22402827, w: 0.9745703}
+  m_LocalPosition: {x: 0.38, y: 0.21, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 339104112761738334}
+  m_LocalEulerAnglesHint: {x: -0.554, y: -0.105, z: -25.891}
 --- !u!1 &6218589615530528701
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,14 +142,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6218589615530528701}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.009118953, y: -0.00611099, z: 0.5377731, w: 0.84301823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.636, y: 0.023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6194969073466539782}
+  - {fileID: 3579714008667769401}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 1.258, y: -0.028, z: 65.068}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7460105439168756149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: bc596ec73fe232c46ab041b8f9c4f3d2, type: 2}
+  laserSpawn: {fileID: 3579714008667769401}
+  laser: {fileID: 2811836346624970363, guid: e6300546c959ab34d8f2fe3ff0a2c5ea, type: 3}
 --- !u!212 &4946558367021276612
 SpriteRenderer:
   m_ObjectHideFlags: 0

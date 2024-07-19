@@ -6,6 +6,13 @@ public class Staff : MonoBehaviour, IWeapon
 {
     bool hasStarted = false;
     [SerializeField] WeaponInfoSO weaponInfo;
+    [SerializeField] Transform laserSpawn;
+    [SerializeField] GameObject laser;
+    Animator animator;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     public WeaponInfoSO GetWeaponInfo()
     {
         return weaponInfo;
@@ -20,7 +27,7 @@ public class Staff : MonoBehaviour, IWeapon
     }
     public void Attack()
     {
-        Debug.Log("StaffAttack");
+        animator.SetTrigger("attacking");
 
     }
     void Update()
@@ -43,5 +50,12 @@ public class Staff : MonoBehaviour, IWeapon
             }
 
         }
+    }
+    public void CreateRay()
+    {
+        GameObject laserInstance = Instantiate(laser, laserSpawn.position, Quaternion.identity);
+        laserInstance.GetComponent<DamageDealing>().SetDamage(weaponInfo.damage);
+        laserInstance.GetComponent<Laser>().SetRange(weaponInfo.range);
+
     }
 }

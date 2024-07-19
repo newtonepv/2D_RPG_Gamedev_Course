@@ -35,8 +35,11 @@ public class Destructible : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageDealing damageDealing = collision.gameObject.GetComponent<DamageDealing>();
+        Debug.Log("collision");
         if (damageDealing != null && damageDealing.GetIsDealingDamage())
         {
+
+            Debug.Log("w damage");
             Die();
 
             /*Debug.Log("pepe");

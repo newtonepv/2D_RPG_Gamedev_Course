@@ -29,7 +29,7 @@ public class SwordController : MonoBehaviour, IWeapon
 
         TryGetComponent<DamageDealing>(out damageDealing);
 
-        trailRenderer= GetComponentInChildren<TrailRenderer>();
+        trailRenderer = GetComponentInChildren<TrailRenderer>();
 
     }
 
@@ -40,7 +40,10 @@ public class SwordController : MonoBehaviour, IWeapon
     }
     void Start()
     {
+        damageDealing.SetDamage(weaponInfo.damage);
+
         hasStarted = true;
+
     }
 
     void SetDamageDealingAvaliable()

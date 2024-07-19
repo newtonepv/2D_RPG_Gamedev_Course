@@ -10,10 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2452226443811195226}
   - component: {fileID: 2148320830626778124}
+  - component: {fileID: 5032123927230892850}
   - component: {fileID: 2812794825086870815}
   - component: {fileID: 603485150041852711}
   - component: {fileID: 359818828546112524}
-  m_Layer: 0
+  - component: {fileID: 4794082166482229105}
+  m_Layer: 7
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,6 +89,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5032123927230892850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975763981312855490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2378965f3aa043e4396dbc81564cc153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mooveSpeed: 22
+  deathEffect: {fileID: 8704587945084888641, guid: 57fa5e98916a07b4dbbd33b588708133, type: 3}
 --- !u!70 &2812794825086870815
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +132,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000000024864713, y: 0.020858036}
@@ -137,7 +153,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -191,7 +207,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.12
+  m_Time: 0.27
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -250,8 +266,8 @@ TrailRenderer:
       m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 90
+    numCapVertices: 90
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -262,3 +278,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &4794082166482229105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975763981312855490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91bb7447d7e41f43a1a94f030380509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldDamageSlimes: 1
+  damage: 4.32
+  knockBackForce: 5.53
+  dealingDamageAvaliable: 1
+  knockbackDuration: 0.24
