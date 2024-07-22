@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwordController : MonoBehaviour, IWeapon
@@ -13,7 +14,11 @@ public class SwordController : MonoBehaviour, IWeapon
 
 
     DamageDealing damageDealing;
-    TrailRenderer trailRenderer;
+
+    [SerializeField] GameObject trail;
+    [SerializeField] Transform trailSpawner;
+    GameObject trailInstance;
+    [SerializeField] float timeToDeleteTrail;
 
     [SerializeField] WeaponInfoSO weaponInfo;
     public WeaponInfoSO GetWeaponInfo()
@@ -28,8 +33,6 @@ public class SwordController : MonoBehaviour, IWeapon
         model = GetComponent<SwordModel>();
 
         TryGetComponent<DamageDealing>(out damageDealing);
-
-        trailRenderer = GetComponentInChildren<TrailRenderer>();
 
     }
 
@@ -49,12 +52,18 @@ public class SwordController : MonoBehaviour, IWeapon
     void SetDamageDealingAvaliable()
     {
         damageDealing.SetDealingDamageAvaliable(true);
-        trailRenderer.emitting = true;
+        trailInstance = Instantiate(trail, trailSpawner.position, Quaternion.identity, transform);
+        Debug.Log("a");
+
     }
     void SetDamageDealingNotAvaliable()
     {
         damageDealing.SetDealingDamageAvaliable(false);
-        trailRenderer.emitting = false;
+
+        trailInstance.transform.parent = null;
+
+        Destroy(trailInstance, timeToDeleteTrail);
+        Debug.Log("b");
     }
     void FlipSlashAnimationUp()
     {

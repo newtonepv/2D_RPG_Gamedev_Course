@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2.7
-  health: 12.7
+  health: 12
   deathParticles: {fileID: 1286266156253748876, guid: 784db38107815f84d92b4292712ee163, type: 3}
 --- !u!1 &8495119751970749421
 GameObject:

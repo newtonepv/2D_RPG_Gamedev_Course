@@ -10,5 +10,6 @@ public class CameraController : Singleton<CameraController>
     {
         cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         cinemachineVirtualCamera.Follow = PlayerController.Instance.transform;
+        Debug.Log("pepe");
     }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bab669f6402d584c83e6e87c0e1a932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slashAnimation: {fileID: 8167562976429753983, guid: 4a5c26b9f1f512b4baceb9617a9ec603, type: 3}
+  weaponInfo: {fileID: 0}
 --- !u!114 &6802486109259079376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6345e21f9176c4a84f4433c525c173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 0}
+  arrow: {fileID: 0}
+  arrowSpawnPoint: {fileID: 0}
 --- !u!212 &8654784982755548108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -470,8 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33701b053cb8de4da02cb8bf1efeced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveWeapon: {fileID: 147068727272193282}
-  slashAnimationSpawner: {fileID: 0}
 --- !u!1 &5960304230045165876
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +526,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bb067eef6ccdc2c4c90db4d7da4fa680, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -586,8 +587,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6392157, g: 0.9607843, b: 0.93426406, a: 1}
-      key1: {r: 0.99516666, g: 1, b: 0.8901961, a: 0.48235294}
+      key0: {r: 0.72169816, g: 0.9622642, b: 0.91151065, a: 1}
+      key1: {r: 0.99516666, g: 1, b: 0.8901961, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -672,6 +673,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60663cd2b33d3a64a9b09dfe389175b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 0}
+  laserSpawn: {fileID: 0}
+  laser: {fileID: 0}
 --- !u!212 &4946558367021276612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -841,7 +845,7 @@ Transform:
   m_GameObject: {fileID: 7015353845124514416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77, y: 0.07, z: 0}
+  m_LocalPosition: {x: -0.84, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

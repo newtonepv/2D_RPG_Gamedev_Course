@@ -15,4 +15,4 @@ MonoBehaviour:
   weeaponPrefab: {fileID: 9089404857602483488, guid: 011f5491e3a6879458c6cf4374cd3fe8, type: 3}
   cooldown: 0.52
   range: 0
-  damage: 7.02
+  damage: 4
